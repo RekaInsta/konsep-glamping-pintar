@@ -37,7 +37,13 @@ button{font:inherit;color:inherit}
 .tag{font-size:14px;color:var(--night-muted);border:1px solid #3A4B42;border-radius:999px;padding:2px 12px}
 .hero h1{margin:28px 0 16px;font-size:clamp(34px,7vw,60px);line-height:1.08;max-width:15ch;text-wrap:balance}
 .hero p{margin:0;max-width:56ch;color:var(--night-muted);font-size:clamp(17px,2.3vw,19px);text-wrap:pretty}
-.scene{display:block;width:100%;height:clamp(260px,42vw,460px);margin-top:12px}
+.buka{display:grid;gap:24px;align-items:center}
+@media (min-width:900px){.buka{grid-template-columns:1.05fr 1fr;gap:48px;padding-bottom:8px}}
+.singkat{margin-top:14px!important;color:var(--night-ink)!important;font-weight:500}
+.vid{margin:0}
+.vid video{display:block;width:100%;aspect-ratio:1/1;border-radius:16px;background:#0E1713;box-shadow:0 0 0 1px #2B3D34}
+#dengar{display:inline-flex;align-items:center;gap:10px;min-height:48px;margin-top:12px;padding:10px 20px;border:0;border-radius:999px;background:var(--lamp);color:var(--night);font-weight:600;font-size:16px;cursor:pointer}
+.scene{display:block;width:100%;height:clamp(200px,30vw,340px);margin-top:12px}
 .star{animation:kedip 4s ease-in-out infinite}
 @keyframes kedip{50%{opacity:.25}}
 .fog{animation:kabut 38s linear infinite alternate}
@@ -57,6 +63,17 @@ button{font:inherit;color:inherit}
 .malam h3{margin:0 0 2px;font-size:20px;line-height:1.35}
 .malam p{margin:0;color:var(--muted)}
 @media (max-width:520px){.malam li{grid-template-columns:62px 1fr;gap:12px}.malam li::before{left:69px}.malam .jam{font-size:15px}}
+
+/* Fitur */
+.fitur{display:grid;gap:8px 40px}
+@media (min-width:760px){.fitur{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1100px){.fitur{grid-template-columns:repeat(4,1fr);gap:8px 32px}}
+.fitur h3{margin:18px 0 6px;font-size:21px;padding-bottom:8px;border-bottom:2px solid var(--ink)}
+.fitur ul{list-style:none;margin:0;padding:0}
+.fitur li{padding:12px 0;border-bottom:1px solid var(--line)}
+.fitur li b{display:block;font-weight:600;line-height:1.35}
+.fitur li span{display:block;color:var(--muted);font-size:16px;line-height:1.5;margin-top:2px}
+.opsi{font-style:normal;font-size:12px;font-weight:600;color:var(--lamp-ink);border:1px solid var(--lamp);border-radius:999px;padding:1px 8px;margin-left:6px;vertical-align:2px;white-space:nowrap}
 
 /* Coba panel */
 .coba{display:grid;gap:24px;align-items:center}
@@ -90,11 +107,18 @@ button{font:inherit;color:inherit}
 .baris small{display:block;color:var(--muted);font-size:14px}
 .saklar{flex:none;width:56px;height:32px;border-radius:999px;border:0;background:#CFC8B8;position:relative;cursor:pointer;transition:background .25s}
 .saklar::after{content:"";position:absolute;top:4px;left:4px;width:24px;height:24px;border-radius:50%;background:#fff;transition:transform .25s}
+.saklar::before{content:"";position:absolute;inset:-8px -4px}
 .saklar[aria-checked="true"]{background:var(--pine)}
 .saklar[aria-checked="true"]::after{transform:translateX(24px)}
 .tombol{flex:none;min-height:44px;padding:8px 16px;border-radius:999px;border:1px solid var(--ink);background:#fff;cursor:pointer;font-weight:600;font-size:15px}
-.pesan{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.pesan button{min-height:72px;padding:8px 4px;border:1px solid var(--line);border-radius:12px;background:var(--paper);cursor:pointer;font-size:14px;line-height:1.3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.pesan{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.suara .chip{min-height:48px}
+#buram{transition:opacity .6s ease}
+#nada{transition:opacity .4s ease}
+.not{animation:melayang 2.4s ease-in-out infinite}
+.not.b{animation-delay:1.2s}
+@keyframes melayang{0%{opacity:0;transform:translateY(8px)}30%{opacity:1}100%{opacity:0;transform:translateY(-16px)}}
+.pesan button{min-height:64px;padding:8px 4px;border:1px solid var(--line);border-radius:12px;background:var(--paper);cursor:pointer;font-size:14px;line-height:1.3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
 .pesan button svg{color:var(--lamp-ink)}
 .pesan button[aria-pressed="true"]{background:var(--night);color:var(--night-ink);border-color:var(--night)}
 .pesan button[aria-pressed="true"] svg{color:var(--lamp)}
@@ -159,8 +183,17 @@ footer{padding:28px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
 <header class="hero">
   <div class="wrap">
     <div class="top"><span class="brand">RekaInsta</span><span class="tag">Gambaran konsep</span></div>
-    <h1>Tenda yang sudah hangat sebelum tamunya datang.</h1>
-    <p>Gambaran glamping pintar untuk dataran tinggi Ciwidey. Tamu masuk pakai HP, lampu dan pemanas diatur dari tenda, Ibu memantau semua unit dari rumah. Keramahan tetap dari tim Ibu, urusan yang berulang dikerjakan alat.</p>
+    <div class="buka">
+      <div>
+        <h1>Tenda yang sudah hangat sebelum tamunya datang.</h1>
+        <p>Gambaran glamping pintar untuk dataran tinggi Ciwidey. Tamu masuk pakai HP, lampu dan pemanas diatur dari tenda, Ibu memantau semua unit dari rumah. Keramahan tetap dari tim Ibu, urusan yang berulang dikerjakan alat.</p>
+        <p class="singkat">Tidak sempat membaca? Tonton videonya, isinya sama.</p>
+      </div>
+      <figure class="vid">
+        <video id="vid" src="video/glamping-pintar.mp4" poster="video/poster.jpg" playsinline muted loop preload="metadata" controls aria-label="Video gambaran glamping pintar, sekitar satu setengah menit, dengan teks di layar"></video>
+        <button type="button" id="dengar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg><span>Putar dengan suara</span></button>
+      </figure>
+    </div>
   </div>
   <svg class="scene" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Ilustrasi malam di glamping: kabin segitiga menyala hangat di antara kebun teh dan kabut pegunungan">
     <defs>
@@ -219,13 +252,63 @@ footer{padding:28px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
   <h2 id="s-malam">Satu malam tamu di glamping Ibu</h2>
   <p class="lead">Dari pesan pertama sampai pulang, tamu tidak perlu antre di meja depan. Petugas Ibu tinggal menyambut dan melayani.</p>
   <ol class="malam">
-    <li><span class="jam">H-1</span><div class="isi"><h3>Tamu dapat pesan WhatsApp</h3><p>Isinya rute ke lokasi, jam check-in, tautan untuk isi data KTP, dan PIN pintu tenda.</p></div></li>
-    <li><span class="jam">13.30</span><div class="isi"><h3>Tenda dihangatkan</h3><p>Pemanas dan air panas menyala sendiri setengah jam sebelum tamu tiba. Udara luar 12 derajat, dalam tenda sudah nyaman.</p></div></li>
-    <li><span class="jam">14.00</span><div class="isi"><h3>Langsung masuk tenda</h3><p>PIN aktif tepat jam check-in. Petugas cukup menyambut dengan teh hangat, tidak perlu mencatat dan mencari kunci.</p></div></li>
-    <li><span class="jam">19.00</span><div class="isi"><h3>Pesan api unggun dari HP</h3><p>Tamu memindai kode di dinding tenda, lalu memilih api unggun, jagung bakar, atau bandrek. Pesanan langsung masuk ke HP petugas.</p></div></li>
-    <li><span class="jam">05.30</span><div class="isi"><h3>Kabar kabut dan matahari terbit</h3><p>Pesan pagi singkat: kabut sedang tebal atau tipis, jam matahari terbit, ajakan jalan ke kebun teh.</p></div></li>
-    <li><span class="jam">12.00</span><div class="isi"><h3>Pulang tanpa antre</h3><p>PIN berhenti sendiri, pemanas mati, tamu diminta memberi ulasan selagi kesannya masih hangat.</p></div></li>
+    <li><span class="jam">H-1</span><div class="isi"><h3>Tamu dapat pesan WhatsApp</h3><p>Isinya rute ke lokasi, jam check-in, tautan untuk isi data dan foto KTP, dan PIN pintu tenda yang bisa dibagikan ke teman satu tenda.</p></div></li>
+    <li><span class="jam">13.30</span><div class="isi"><h3>Tenda dihangatkan</h3><p>Pemanas, selimut listrik, dan air panas menyala sendiri setengah jam sebelum tamu tiba. Di tenda premium, bak rendam air panas ikut disiapkan.</p></div></li>
+    <li><span class="jam">14.00</span><div class="isi"><h3>Langsung masuk tenda</h3><p>PIN aktif tepat jam check-in, pintu terkunci sendiri beberapa detik setelah ditutup. Petugas cukup menyambut dengan teh hangat.</p></div></li>
+    <li><span class="jam">19.00</span><div class="isi"><h3>Pesan api unggun dari HP</h3><p>Tamu memindai kode di dinding tenda, lalu memilih api unggun, BBQ, jagung bakar, atau bandrek. Pesanan langsung masuk ke HP petugas.</p></div></li>
+    <li><span class="jam">21.00</span><div class="isi"><h3>Tirai ditutup, suara jangkrik menyala</h3><p>Dari HP, jendela dibuat buram untuk tidur dan speaker memutar suara hujan, jangkrik, atau sungai.</p></div></li>
+    <li><span class="jam">05.30</span><div class="isi"><h3>Kabar kabut dan matahari terbit</h3><p>Pesan pagi singkat: kabut sedang tebal atau tipis, jam matahari terbit. Tirai dibuka, kebun teh kelihatan dari kasur.</p></div></li>
+    <li><span class="jam">07.00</span><div class="isi"><h3>Sarapan Sunda diantar, lalu petik teh</h3><p>Nasi liwet atau bubur dipesan semalam, diantar ke depan tenda. Jalan pagi ke kebun teh atau sepeda keliling dipesan dari HP juga.</p></div></li>
+    <li><span class="jam">12.00</span><div class="isi"><h3>Pulang tanpa antre</h3><p>Mau pulang lebih siang tinggal minta dari HP. PIN berhenti sendiri, pemanas mati, tamu diminta memberi ulasan selagi kesannya masih hangat.</p></div></li>
   </ol>
+</section>
+
+<section aria-labelledby="s-fitur">
+  <h2 id="s-fitur">Semua fiturnya dalam satu daftar</h2>
+  <p class="lead">Fitur yang sudah dipakai kabin-kabin pintar di kebun teh sekitar Bandung, ditambah yang paling dibutuhkan di udara dingin Ciwidey.</p>
+  <div class="fitur">
+    <div>
+      <h3>Sebelum datang</h3>
+      <ul>
+        <li><b>Pesan langsung</b><span>Halaman pesan dan bayar milik glamping sendiri, tidak hanya lewat aplikasi perjalanan.</span></li>
+        <li><b>Check-in dari rumah</b><span>Isi data dan foto KTP lewat tautan. Sampai di lokasi tidak perlu mengisi buku tamu.</span></li>
+        <li><b>PIN di HP</b><span>Dikirim sehari sebelumnya, bisa dibagikan ke teman satu tenda.</span></li>
+        <li><b>Rute dan cuaca</b><span>Petunjuk jalan, jam tutup gerbang wisata, perkiraan kabut.</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Di dalam tenda</h3>
+      <ul>
+        <li><b>Kunci pintar</b><span>PIN atau kode, terkunci sendiri setelah pintu ditutup.</span></li>
+        <li><b>Pemanas dan selimut listrik</b><span>Menyala sebelum tamu tiba, mati sendiri saat tenda kosong.</span></li>
+        <li><b>Air panas terpantau</b><span>Suhu dan sisa air panas kelihatan, cukup untuk mandi satu keluarga.</span></li>
+        <li><b>Lampu suasana</b><span>Hangat, senja, bulan. Bahan foto tamu yang paling dicari.</span></li>
+        <li><b>Tirai atau jendela pintar <em class="opsi">Premium</em></b><span>Bening untuk lihat kebun teh dari kasur, buram untuk tidur.</span></li>
+        <li><b>Musik dan suara alam</b><span>Hujan, jangkrik, aliran sungai, atau lagu dari HP tamu.</span></li>
+        <li><b>Bak rendam air panas <em class="opsi">Premium</em></b><span>Dipanaskan sebelum tamu tiba. Tenda ini bisa dijual lebih mahal.</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Pesan dari HP</h3>
+      <ul>
+        <li><b>Makan dan minum</b><span>Bandrek, jagung bakar, nasi liwet, sarapan diantar ke depan tenda.</span></li>
+        <li><b>Api unggun dan BBQ</b><span>Petugas datang menyalakan, alat dan arang disiapkan.</span></li>
+        <li><b>Kegiatan</b><span>Petik teh pagi, jalan kebun, sepeda listrik, antar ke kawah dan danau terdekat.</span></li>
+        <li><b>Minta bantuan</b><span>Tambah selimut, bersih-bersih, pulang lebih siang.</span></li>
+        <li><b>Paket keluarga</b><span>Buku mewarnai dan permainan untuk anak di dalam tenda.</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Untuk Ibu</h3>
+      <ul>
+        <li><b>Layar semua tenda</b><span>Terisi, belum datang, suhu, air panas, pesanan.</span></li>
+        <li><b>Harga per musim</b><span>Akhir pekan dan libur panjang diatur dari HP.</span></li>
+        <li><b>Sensor asap dan gas</b><span>HP petugas dan HP Ibu sama-sama berbunyi.</span></li>
+        <li><b>Listrik per tenda</b><span>Kelihatan tenda mana yang boros.</span></li>
+        <li><b>Ulasan tamu</b><span>Masuk otomatis setelah tamu pulang, yang jelek langsung ketahuan.</span></li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <section aria-labelledby="s-coba">
@@ -247,8 +330,13 @@ footer{padding:28px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
         <ellipse id="sinar" cx="170" cy="180" rx="170" ry="140" fill="url(#pendar2)" opacity=".55"/>
         <path d="M40 266 L170 42 L300 266Z" fill="#0E1713"/>
         <path id="kaca" d="M70 258 L170 82 L270 258Z" fill="#F4B860"/>
+        <path id="buram" d="M70 258 L170 82 L270 258Z" fill="#E9EEEC" opacity="0"/>
         <g stroke="#0E1713" stroke-width="4"><path d="M170 84 V182"/><path d="M114 182 H226"/></g>
         <rect x="146" y="182" width="48" height="76" fill="none" stroke="#0E1713" stroke-width="4"/>
+        <g id="nada" fill="#FFF3DD" opacity="0">
+          <g class="not"><circle cx="262" cy="96" r="6"/><path d="M267 96 V72 l10 4" stroke="#FFF3DD" stroke-width="3" fill="none"/></g>
+          <g class="not b"><circle cx="290" cy="124" r="5"/><path d="M294 124 V104 l9 3" stroke="#FFF3DD" stroke-width="3" fill="none"/></g>
+        </g>
         <!-- gembok -->
         <g id="gembok" transform="translate(196 216)">
           <rect x="-11" y="0" width="22" height="18" rx="3" fill="#0E1713"/>
@@ -291,12 +379,26 @@ footer{padding:28px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
         <div><b>Pintu</b><small id="pintu-ket">Terkunci</small></div>
         <button class="tombol" type="button" id="pintu">Buka</button>
       </div>
+      <div class="baris">
+        <div><b id="l-tirai">Jendela buram</b><small id="tirai-ket">Mati, kebun teh kelihatan</small></div>
+        <button class="saklar" type="button" role="switch" aria-checked="false" aria-labelledby="l-tirai" id="tirai"></button>
+      </div>
+      <div class="grup" style="padding-top:14px;border-top:1px solid var(--paper-2)">
+        <p class="judul" id="l-suara">Suara alam</p>
+        <div class="warna suara" role="group" aria-labelledby="l-suara">
+          <button class="chip" type="button" data-suara="hujan" aria-pressed="false">Hujan</button>
+          <button class="chip" type="button" data-suara="jangkrik" aria-pressed="false">Jangkrik</button>
+          <button class="chip" type="button" data-suara="sungai" aria-pressed="false">Sungai</button>
+          <button class="chip" type="button" data-suara="mati" aria-pressed="true">Mati</button>
+        </div>
+      </div>
       <div class="grup" style="padding-top:14px;border-top:1px solid var(--paper-2)">
         <p class="judul" id="l-pesan">Pesan ke petugas</p>
         <div class="pesan" role="group" aria-labelledby="l-pesan">
           <button type="button" data-pesan="api" aria-pressed="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c1 3 4 5 4 9a4 4 0 0 1-8 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 0-8z"/><path d="M5 20l14-3M5 17l14 3"/></svg>Api unggun</button>
-          <button type="button" data-pesan="jagung" aria-pressed="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4c3 0 5 2 5 5-2 6-7 10-12 11l-3-3c1-5 5-10 10-13z"/><path d="M9 10l5 5M11 8l5 5M7 12l5 5"/></svg>Jagung bakar</button>
           <button type="button" data-pesan="bandrek" aria-pressed="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5z"/><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M9 3c-1 1.5 1 2.5 0 4M12 3c-1 1.5 1 2.5 0 4"/></svg>Bandrek</button>
+          <button type="button" data-pesan="sarapan" aria-pressed="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18a9 9 0 0 1-18 0z"/><path d="M8 8c0-1.5 1-2 1-3.5M12 8c0-1.5 1-2 1-3.5M16 8c0-1.5 1-2 1-3.5"/></svg>Sarapan besok</button>
+          <button type="button" data-pesan="teh" aria-pressed="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 6-14 14-14 0 8-6 14-14 14z"/><path d="M5 19l8-8"/></svg>Petik teh pagi</button>
         </div>
       </div>
       <div class="kabar" id="kabar" aria-live="polite">Kabut malam ini tipis, bintang kelihatan jelas.</div>
@@ -315,6 +417,7 @@ footer{padding:28px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
       <li><b>Pesanan tambahan tercatat</b><span>Api unggun, jagung bakar, sarapan antar. Semuanya tercatat jadi pendapatan, tidak hilang di catatan petugas.</span></li>
       <li><b>Listrik tidak terbuang</b><span>Pemanas di tenda kosong mati sendiri. Pemakaian listrik tiap tenda kelihatan.</span></li>
       <li><b>Asap dan gas</b><span>Sensor di tiap tenda. Kalau ada asap, HP petugas dan HP Ibu sama-sama berbunyi.</span></li>
+      <li><b>Harga dan ulasan</b><span>Harga akhir pekan dan libur panjang diatur dari HP. Ulasan tamu masuk sendiri setelah mereka pulang.</span></li>
     </ul>
     <div class="layar" aria-label="Contoh layar pemantau di HP pemilik">
       <div class="ringkas">
@@ -332,6 +435,8 @@ footer{padding:28px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
         <div class="judul">Pesanan malam ini</div>
         <div><span>Tenda Kabut 1 · api unggun</span><b>19.04</b></div>
         <div><span>Tenda Kabut 2 · bandrek 2 gelas</span><b>19.40</b></div>
+        <div><span>Tenda Kabut 1 · nasi liwet 2, besok</span><b>07.00</b></div>
+        <div><span>Tenda Kabut 2 · petik teh 3 orang, besok</span><b>06.00</b></div>
       </div>
     </div>
   </div>
@@ -363,9 +468,9 @@ footer{padding:28px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
   <h2 id="s-tahap">Dipasang bertahap</h2>
   <p class="lead">Mulai dari yang paling terasa oleh tamu, lalu ditambah setelah hasilnya kelihatan.</p>
   <ol class="tahap">
-    <li><span class="k">Tahap 1</span><h3>Pintu &amp; pesan</h3><p>Kunci PIN di tiap tenda, pesan WhatsApp otomatis sebelum datang, kode di dinding untuk pesan api unggun dan makanan.</p></li>
-    <li><span class="k">Tahap 2</span><h3>Hangat &amp; suasana</h3><p>Pemanas menyala sebelum tamu tiba, air panas terpantau, lampu suasana yang bisa diatur tamu. Bahan foto tamu yang paling dicari.</p></li>
-    <li><span class="k">Tahap 3</span><h3>Pantauan Ibu</h3><p>Layar di HP Ibu untuk semua tenda, sensor asap, pemakaian listrik, dan catatan pesanan tambahan.</p></li>
+    <li><span class="k">Tahap 1</span><h3>Pintu &amp; pesan</h3><p>Check-in dari rumah, kunci PIN di tiap tenda, pesan WhatsApp otomatis, kode di dinding untuk pesan makanan, api unggun, dan kegiatan.</p></li>
+    <li><span class="k">Tahap 2</span><h3>Hangat &amp; suasana</h3><p>Pemanas dan selimut listrik otomatis, air panas terpantau, lampu suasana, suara alam. Untuk tenda premium: jendela buram dan bak rendam air panas.</p></li>
+    <li><span class="k">Tahap 3</span><h3>Pantauan Ibu</h3><p>Layar di HP Ibu untuk semua tenda, harga per musim, sensor asap, listrik per tenda, ulasan, dan catatan pesanan tambahan.</p></li>
   </ol>
   <div class="mulai">
     <b>Bisa dimulai dari 2 atau 3 tenda dulu</b>
@@ -381,7 +486,19 @@ footer{padding:28px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
 
 <script>
 (function(){
-  var warna = {hangat:'#F4B860', senja:'#EE8455', bulan:'#A9C9EC', mati:'#24302A'};
+  var v = document.getElementById('vid'), d = document.getElementById('dengar');
+  var hemat = false;
+  try { hemat = window.matchMedia('(prefers-reduced-motion: reduce)').matches || (navigator.connection && navigator.connection.saveData); } catch(e) {}
+  if (!hemat) { var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+  d.addEventListener('click', function(){
+    v.muted = false; v.loop = false; v.currentTime = 0;
+    var p = v.play(); if (p && p.catch) p.catch(function(){});
+    d.querySelector('span').textContent = 'Diputar dengan suara';
+  });
+  v.addEventListener('ended', function(){ d.querySelector('span').textContent = 'Putar lagi dengan suara'; });
+})();
+(function(){
+  var warna ={hangat:'#F4B860', senja:'#EE8455', bulan:'#A9C9EC', mati:'#24302A'};
   var kaca = document.getElementById('kaca'), sinar = document.getElementById('sinar'), sinarT = document.getElementById('sinar-tanah');
   var kabar = document.getElementById('kabar');
   var hangat = true;
@@ -420,10 +537,30 @@ footer{padding:28px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
     kabar.textContent = terkunci ? 'Pintu terkunci.' : 'Pintu terbuka. Terkunci lagi otomatis 30 detik setelah ditutup.';
   });
 
+  var tirai = document.getElementById('tirai'), buram = false;
+  tirai.addEventListener('click', function(){
+    buram = !buram;
+    tirai.setAttribute('aria-checked', buram ? 'true' : 'false');
+    document.getElementById('buram').style.opacity = buram ? .78 : 0;
+    document.getElementById('tirai-ket').textContent = buram ? 'Nyala, dari luar tidak kelihatan' : 'Mati, kebun teh kelihatan';
+    kabar.textContent = buram ? 'Jendela dibuat buram. Selamat beristirahat.' : 'Jendela bening lagi. Pagi ini kabut tipis di kebun teh.';
+  });
+
+  var namaSuara = {hujan:'suara hujan', jangkrik:'suara jangkrik', sungai:'suara aliran sungai'};
+  document.querySelectorAll('[data-suara]').forEach(function(b){
+    b.addEventListener('click', function(){
+      document.querySelectorAll('[data-suara]').forEach(function(x){x.setAttribute('aria-pressed', x===b ? 'true' : 'false')});
+      var s = b.getAttribute('data-suara');
+      document.getElementById('nada').style.opacity = s === 'mati' ? 0 : 1;
+      kabar.textContent = s === 'mati' ? 'Speaker dimatikan.' : 'Speaker memutar ' + namaSuara[s] + ', mati sendiri setelah 1 jam.';
+    });
+  });
+
   var teks = {
     api:'Api unggun dipesan. Petugas datang menyalakan sekitar 15 menit lagi.',
-    jagung:'Jagung bakar 2 porsi dipesan. Diantar ke depan tenda.',
-    bandrek:'Bandrek 2 gelas dipesan. Diantar hangat-hangat.'
+    bandrek:'Bandrek 2 gelas dipesan. Diantar hangat-hangat.',
+    sarapan:'Nasi liwet 2 porsi dipesan untuk besok pukul 07.00, diantar ke depan tenda.',
+    teh:'Jalan pagi ke kebun teh pukul 06.00 dipesan. Pemandu menunggu di depan tenda.'
   };
   document.querySelectorAll('[data-pesan]').forEach(function(b){
     b.addEventListener('click', function(){
