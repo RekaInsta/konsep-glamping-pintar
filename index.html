@@ -43,14 +43,19 @@ button{font:inherit;color:inherit}
 .singkat{margin-top:14px!important;color:var(--night-ink)!important;font-weight:500}
 .vid{margin:0}
 .vid video{display:block;width:100%;aspect-ratio:1/1;border-radius:16px;background:#0E1713;box-shadow:0 0 0 1px #2B3D34}
+.vid-kotak{position:relative}
+.putarvid{position:absolute;left:50%;top:56%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:10px;min-height:56px;padding:10px 24px 10px 18px;border:0;border-radius:999px;background:var(--lamp);color:var(--night);font:600 17px var(--sans);cursor:pointer;box-shadow:0 10px 30px -8px rgba(0,0,0,.6)}
+.putarvid[hidden]{display:none}
 #dengar{display:inline-flex;align-items:center;gap:10px;min-height:48px;margin-top:12px;padding:10px 20px;border:0;border-radius:999px;background:var(--lamp);color:var(--night);font-weight:600;font-size:16px;cursor:pointer}
 .hero{position:relative;background:linear-gradient(180deg,#0B1512 0%,#10201A 45%,#182B23 78%,#1B3127 100%)}
-.hero::before{content:"";position:absolute;inset:0 0 35% 0;background-image:radial-gradient(2px 2px at 66% 8%,rgba(238,240,234,0.74),transparent),radial-gradient(2px 2px at 57% 65%,rgba(238,240,234,0.60),transparent),radial-gradient(2px 2px at 39% 64%,rgba(238,240,234,0.36),transparent),radial-gradient(1.5px 1.5px at 36% 59%,rgba(238,240,234,0.62),transparent),radial-gradient(1px 1px at 76% 14%,rgba(238,240,234,0.49),transparent),radial-gradient(1.5px 1.5px at 90% 48%,rgba(238,240,234,0.44),transparent),radial-gradient(1.5px 1.5px at 55% 84%,rgba(238,240,234,0.80),transparent),radial-gradient(2px 2px at 29% 41%,rgba(238,240,234,0.55),transparent),radial-gradient(1.5px 1.5px at 94% 16%,rgba(238,240,234,0.45),transparent),radial-gradient(1px 1px at 65% 3%,rgba(238,240,234,0.81),transparent),radial-gradient(1px 1px at 27% 2%,rgba(238,240,234,0.58),transparent),radial-gradient(1.5px 1.5px at 61% 32%,rgba(238,240,234,0.42),transparent),radial-gradient(2px 2px at 93% 63%,rgba(238,240,234,0.76),transparent),radial-gradient(1.5px 1.5px at 88% 75%,rgba(238,240,234,0.83),transparent),radial-gradient(2px 2px at 40% 39%,rgba(238,240,234,0.41),transparent),radial-gradient(2px 2px at 40% 20%,rgba(238,240,234,0.89),transparent),radial-gradient(1.5px 1.5px at 18% 34%,rgba(238,240,234,0.38),transparent),radial-gradient(1px 1px at 56% 52%,rgba(238,240,234,0.87),transparent),radial-gradient(2px 2px at 4% 83%,rgba(238,240,234,0.69),transparent),radial-gradient(1px 1px at 63% 91%,rgba(238,240,234,0.68),transparent),radial-gradient(1.5px 1.5px at 14% 81%,rgba(238,240,234,0.90),transparent),radial-gradient(1.5px 1.5px at 48% 31%,rgba(238,240,234,0.43),transparent),radial-gradient(2px 2px at 35% 27%,rgba(238,240,234,0.81),transparent),radial-gradient(1px 1px at 52% 21%,rgba(238,240,234,0.87),transparent),radial-gradient(1.5px 1.5px at 16% 53%,rgba(238,240,234,0.36),transparent),radial-gradient(2px 2px at 31% 62%,rgba(238,240,234,0.40),transparent),radial-gradient(1.5px 1.5px at 52% 86%,rgba(238,240,234,0.55),transparent),radial-gradient(1px 1px at 53% 74%,rgba(238,240,234,0.53),transparent),radial-gradient(1px 1px at 61% 75%,rgba(238,240,234,0.77),transparent),radial-gradient(1px 1px at 79% 78%,rgba(238,240,234,0.76),transparent),radial-gradient(1px 1px at 21% 48%,rgba(238,240,234,0.75),transparent),radial-gradient(1px 1px at 78% 46%,rgba(238,240,234,0.46),transparent),radial-gradient(2px 2px at 94% 44%,rgba(238,240,234,0.87),transparent),radial-gradient(1.5px 1.5px at 94% 36%,rgba(238,240,234,0.47),transparent),radial-gradient(1px 1px at 47% 33%,rgba(238,240,234,0.62),transparent),radial-gradient(2px 2px at 83% 47%,rgba(238,240,234,0.71),transparent),radial-gradient(2px 2px at 10% 63%,rgba(238,240,234,0.85),transparent),radial-gradient(2px 2px at 74% 46%,rgba(238,240,234,0.45),transparent),radial-gradient(2px 2px at 34% 76%,rgba(238,240,234,0.88),transparent),radial-gradient(1.5px 1.5px at 46% 71%,rgba(238,240,234,0.40),transparent),radial-gradient(1px 1px at 18% 14%,rgba(238,240,234,0.43),transparent),radial-gradient(1.5px 1.5px at 79% 16%,rgba(238,240,234,0.80),transparent),radial-gradient(1.5px 1.5px at 65% 35%,rgba(238,240,234,0.65),transparent),radial-gradient(1px 1px at 4% 76%,rgba(238,240,234,0.75),transparent),radial-gradient(1px 1px at 53% 89%,rgba(238,240,234,0.59),transparent),radial-gradient(1px 1px at 81% 22%,rgba(238,240,234,0.49),transparent);pointer-events:none;animation:kedip 6s ease-in-out infinite}
+.hero::before{content:"";position:absolute;inset:0 0 35% 0;background-image:radial-gradient(2px 2px at 66% 8%,rgba(238,240,234,0.74),transparent),radial-gradient(2px 2px at 57% 65%,rgba(238,240,234,0.60),transparent),radial-gradient(2px 2px at 39% 64%,rgba(238,240,234,0.36),transparent),radial-gradient(1.5px 1.5px at 36% 59%,rgba(238,240,234,0.62),transparent),radial-gradient(1px 1px at 76% 14%,rgba(238,240,234,0.49),transparent),radial-gradient(1.5px 1.5px at 90% 48%,rgba(238,240,234,0.44),transparent),radial-gradient(1.5px 1.5px at 55% 84%,rgba(238,240,234,0.80),transparent),radial-gradient(2px 2px at 29% 41%,rgba(238,240,234,0.55),transparent),radial-gradient(1.5px 1.5px at 94% 16%,rgba(238,240,234,0.45),transparent),radial-gradient(1px 1px at 65% 3%,rgba(238,240,234,0.81),transparent),radial-gradient(1px 1px at 27% 2%,rgba(238,240,234,0.58),transparent),radial-gradient(1.5px 1.5px at 61% 32%,rgba(238,240,234,0.42),transparent),radial-gradient(2px 2px at 93% 63%,rgba(238,240,234,0.76),transparent),radial-gradient(1.5px 1.5px at 88% 75%,rgba(238,240,234,0.83),transparent),radial-gradient(2px 2px at 40% 39%,rgba(238,240,234,0.41),transparent),radial-gradient(2px 2px at 40% 20%,rgba(238,240,234,0.89),transparent),radial-gradient(1.5px 1.5px at 18% 34%,rgba(238,240,234,0.38),transparent),radial-gradient(1px 1px at 56% 52%,rgba(238,240,234,0.87),transparent),radial-gradient(2px 2px at 4% 83%,rgba(238,240,234,0.69),transparent),radial-gradient(1px 1px at 63% 91%,rgba(238,240,234,0.68),transparent),radial-gradient(1.5px 1.5px at 14% 81%,rgba(238,240,234,0.90),transparent),radial-gradient(1.5px 1.5px at 48% 31%,rgba(238,240,234,0.43),transparent),radial-gradient(2px 2px at 35% 27%,rgba(238,240,234,0.81),transparent),radial-gradient(1px 1px at 52% 21%,rgba(238,240,234,0.87),transparent),radial-gradient(1.5px 1.5px at 16% 53%,rgba(238,240,234,0.36),transparent),radial-gradient(2px 2px at 31% 62%,rgba(238,240,234,0.40),transparent),radial-gradient(1.5px 1.5px at 52% 86%,rgba(238,240,234,0.55),transparent),radial-gradient(1px 1px at 53% 74%,rgba(238,240,234,0.53),transparent),radial-gradient(1px 1px at 61% 75%,rgba(238,240,234,0.77),transparent),radial-gradient(1px 1px at 79% 78%,rgba(238,240,234,0.76),transparent),radial-gradient(1px 1px at 21% 48%,rgba(238,240,234,0.75),transparent),radial-gradient(1px 1px at 78% 46%,rgba(238,240,234,0.46),transparent),radial-gradient(2px 2px at 94% 44%,rgba(238,240,234,0.87),transparent),radial-gradient(1.5px 1.5px at 94% 36%,rgba(238,240,234,0.47),transparent),radial-gradient(1px 1px at 47% 33%,rgba(238,240,234,0.62),transparent),radial-gradient(2px 2px at 83% 47%,rgba(238,240,234,0.71),transparent),radial-gradient(2px 2px at 10% 63%,rgba(238,240,234,0.85),transparent),radial-gradient(2px 2px at 74% 46%,rgba(238,240,234,0.45),transparent),radial-gradient(2px 2px at 34% 76%,rgba(238,240,234,0.88),transparent),radial-gradient(1.5px 1.5px at 46% 71%,rgba(238,240,234,0.40),transparent),radial-gradient(1px 1px at 18% 14%,rgba(238,240,234,0.43),transparent),radial-gradient(1.5px 1.5px at 79% 16%,rgba(238,240,234,0.80),transparent),radial-gradient(1.5px 1.5px at 65% 35%,rgba(238,240,234,0.65),transparent),radial-gradient(1px 1px at 4% 76%,rgba(238,240,234,0.75),transparent),radial-gradient(1px 1px at 53% 89%,rgba(238,240,234,0.59),transparent),radial-gradient(1px 1px at 81% 22%,rgba(238,240,234,0.49),transparent);pointer-events:none}
 .hero::before{-webkit-mask-image:linear-gradient(90deg,#000 calc(50% - 580px),transparent calc(50% - 545px),transparent calc(50% + 10px),#000 calc(50% + 50px));mask-image:linear-gradient(90deg,#000 calc(50% - 580px),transparent calc(50% - 545px),transparent calc(50% + 10px),#000 calc(50% + 50px))}
 @media (max-width:899px){.hero::before{inset:0 0 auto 0;height:170px;-webkit-mask-image:linear-gradient(#000 55%,transparent);mask-image:linear-gradient(#000 55%,transparent)}}
 .hero .wrap{position:relative;z-index:2;padding-bottom:clamp(180px,26vw,560px)}
 .lanskap{position:absolute;left:0;right:0;bottom:0;width:100%;height:clamp(300px,42vw,900px);z-index:1;pointer-events:none;display:block}
-.kk{animation:kunang 5s ease-in-out infinite}
+.kk{animation:kunang 5s ease-in-out 2}
+.hero .lidah{animation-iteration-count:14}
+.hero .asap{animation-iteration-count:3}
 @keyframes kunang{0%{opacity:0;transform:translate(0,0)}50%{opacity:1;transform:translate(8px,-12px)}100%{opacity:0;transform:translate(-6px,-22px)}}
 .asap{animation:uap 3.4s ease-in-out infinite}
 .asap.b{animation-delay:1.7s}
@@ -61,6 +66,9 @@ button{font:inherit;color:inherit}
 @keyframes kabut{from{transform:translateX(-120px)}to{transform:translateX(120px)}}
 .nyala{animation:napas 5s ease-in-out infinite}
 @keyframes napas{50%{opacity:.7}}
+
+.hero.diam *,.hero.diam::before{animation-play-state:paused!important}
+main > section{content-visibility:auto;contain-intrinsic-size:auto 900px}
 
 /* Satu malam */
 .malam{list-style:none;margin:0;padding:0;display:grid;gap:0;max-width:760px}
@@ -95,10 +103,10 @@ button{font:inherit;color:inherit}
 #kaca,#sinar,#sinar-tanah{transition:fill .5s ease,opacity .5s ease}
 #hangat{transition:opacity .6s ease}
 #api{transition:opacity .4s ease}
-.api-lidah{transform-origin:50% 100%;transform-box:fill-box;animation:lidah .9s ease-in-out infinite alternate}
+.api-lidah{transform-origin:50% 100%;transform-box:fill-box;animation:lidah .9s ease-in-out 8 alternate}
 .api-lidah.b{animation-duration:.7s}
 @keyframes lidah{from{transform:scaleY(.85) skewX(-4deg)}to{transform:scaleY(1.08) skewX(4deg)}}
-.uap{animation:uap 3s ease-in-out infinite}
+.uap{animation:uap 3s ease-in-out 2}
 .uap.b{animation-delay:1s}.uap.c{animation-delay:2s}
 @keyframes uap{0%{opacity:0;transform:translateY(6px)}40%{opacity:.8}100%{opacity:0;transform:translateY(-14px)}}
 
@@ -125,7 +133,7 @@ button{font:inherit;color:inherit}
 .suara .chip{min-height:48px}
 #buram{transition:opacity .6s ease}
 #nada{transition:opacity .4s ease}
-.not{animation:melayang 2.4s ease-in-out infinite}
+.not{animation:melayang 2.4s ease-in-out 3}
 .not.b{animation-delay:1.2s}
 @keyframes melayang{0%{opacity:0;transform:translateY(8px)}30%{opacity:1}100%{opacity:0;transform:translateY(-16px)}}
 .pesan button{min-height:64px;padding:8px 4px;border:1px solid var(--line);border-radius:12px;background:var(--paper);cursor:pointer;font-size:14px;line-height:1.3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
@@ -134,6 +142,50 @@ button{font:inherit;color:inherit}
 .pesan button[aria-pressed="true"] svg{color:var(--lamp)}
 .kabar{min-height:48px;margin:12px 4px 0;padding:10px 12px;border-radius:10px;background:var(--paper-2);font-size:14px;color:var(--ink)}
 .catatan{margin:18px 0 0;color:var(--muted);font-size:15px;max-width:60ch}
+
+/* Tur 3D */
+.tur{display:grid;gap:16px}
+@media (min-width:960px){.tur{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);align-items:start}}
+.tur-kanvas{position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#16241e}
+@media (min-width:700px){.tur-kanvas{aspect-ratio:16/10}}
+.tur-kanvas canvas{display:block;width:100%;height:100%;touch-action:none}
+.tur-sampul{display:block;width:100%;height:100%;object-fit:cover}
+.tur.jalan .tur-sampul{display:none}
+.tur-mulai{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:10px;min-height:56px;padding:10px 24px 10px 18px;border:0;border-radius:999px;background:var(--lamp);color:var(--night);font:600 17px var(--sans);cursor:pointer;box-shadow:0 10px 30px -8px rgba(0,0,0,.6)}
+.tur-mulai[hidden]{display:none}
+.tur-mulai:disabled{opacity:.85;cursor:progress}
+.tur-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.tur-chip{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font:600 15px var(--sans);cursor:pointer}
+.tur-chip::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--w,#13201B)}
+.tur-chip[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.tur-panel{background:#FFFDF8;border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.tur-panel h3{margin:0;font-size:22px;line-height:1.3}
+.tur-muted{margin:6px 0 0;color:var(--muted);font-size:15px}
+.tur-ringkas{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tur-ringkas li{background:var(--paper);border-radius:12px;padding:12px 14px;color:var(--muted);font-size:15px}
+.tur-ringkas b{display:block;font-family:var(--serif);font-size:28px;color:var(--ink)}
+.tur-ringkas li.awas b{color:var(--warn)}
+.tur-kepala{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.tur-status{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:4px 12px;border-radius:999px;background:var(--paper-2)}
+.tur-status::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--w)}
+.tur-data{margin:12px 0 0}
+.tur-data div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line)}
+.tur-data dt{color:var(--muted);font-size:15px}
+.tur-data dd{margin:0;font-weight:600;text-align:right;font-size:15px}
+.tur-data .awas dd{color:var(--warn)}
+.tur-btn{display:block;width:100%;min-height:48px;margin-top:16px;border:0;border-radius:999px;background:var(--night);color:var(--night-ink);font:600 16px var(--sans);cursor:pointer}
+.tur-btn-2{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+.tur-alat{list-style:none;margin:12px 0 0;padding:0}
+.tur-alat li{border-bottom:1px solid var(--line)}
+.tur-alat button{display:flex;align-items:center;gap:12px;width:100%;min-height:46px;padding:6px 4px;border:0;background:none;color:var(--ink);font:500 15px var(--sans);text-align:left;cursor:pointer}
+.tur-alat button b{color:var(--lamp-ink);min-width:24px}
+.tur-alat li.on{background:var(--paper);border-radius:10px}
+.tur-alat li.on button{font-weight:600}
+.tur-alat li p{margin:0;padding:0 8px 12px 40px;color:var(--muted);font-size:14px}
+.tur-alat li p em{color:var(--warn);font-style:normal;font-weight:600}
+html.snaptur .tur-kanvas{position:fixed;left:0;top:0;width:1280px;height:800px;z-index:9999;border-radius:0;aspect-ratio:auto}
+html.snaptur .tur-mulai{display:none}
+html.snaptur main > section{content-visibility:visible}
 
 /* Denah */
 .denah-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;background:var(--paper-2);border-radius:14px;padding:12px}
@@ -283,7 +335,7 @@ footer{padding:28px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
         <p class="singkat">Tidak sempat membaca? Tonton videonya, isinya sama.</p>
       </div>
       <figure class="vid">
-        <video id="vid" src="video/glamping-pintar.mp4" poster="video/poster.jpg" playsinline muted loop preload="metadata" controls aria-label="Video gambaran glamping pintar, sekitar satu setengah menit, dengan teks di layar"></video>
+        <div class="vid-kotak"><video id="vid" src="video/glamping-pintar-720.mp4" poster="video/poster.jpg" playsinline muted loop preload="none" controls aria-label="Video gambaran glamping pintar, sekitar satu setengah menit, dengan teks di layar"></video><button type="button" id="putarvid" class="putarvid" aria-label="Putar video, satu setengah menit"><svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg><span>Tonton 1,5 menit</span></button></div>
         <button type="button" id="dengar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg><span>Putar dengan suara</span></button>
       </figure>
     </div>
@@ -294,30 +346,30 @@ footer{padding:28px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
     <radialGradient id="pendarL"><stop offset="0" stop-color="#F4B860" stop-opacity=".6"/><stop offset="1" stop-color="#F4B860" stop-opacity="0"/></radialGradient>
     <radialGradient id="pendarApiL"><stop offset="0" stop-color="#F28C38" stop-opacity=".6"/><stop offset="1" stop-color="#F28C38" stop-opacity="0"/></radialGradient>
     <radialGradient id="bulanL"><stop offset="0" stop-color="#ECE7D8" stop-opacity=".35"/><stop offset="1" stop-color="#ECE7D8" stop-opacity="0"/></radialGradient>
-    <filter id="kaburL" x="-20%" y="-60%" width="140%" height="220%"><feGaussianBlur stdDeviation="16"/></filter>
+    <linearGradient id="kabutL" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C9D6CF" stop-opacity="0"/><stop offset=".5" stop-color="#C9D6CF" stop-opacity="1"/><stop offset="1" stop-color="#C9D6CF" stop-opacity="0"/></linearGradient>
   </defs>
   <circle cx="1290" cy="96" r="90" fill="url(#bulanL)"/><circle cx="1290" cy="96" r="24" fill="#ECE7D8"/>
   <path d="M0 262 L120 214 L260 240 L400 164 L540 230 L680 186 L820 244 L960 172 L1100 232 L1240 194 L1380 236 L1500 204 L1600 226 V600 H0Z" fill="#192C24"/>
-  <g class="fog"><rect x="-200" y="236" width="2000" height="70" fill="#C9D6CF" opacity=".10" filter="url(#kaburL)"/></g>
+  <rect x="-200" y="236" width="2000" height="70" fill="url(#kabutL)" opacity=".10"/>
   <path d="M0 334 Q200 290 420 320 T840 312 T1260 300 T1600 316 V600 H0Z" fill="#16271F"/>
   <g><path d="M292 330 L330 264 L368 330Z" fill="#12201A"/><path d="M300 296 L330 238 L360 296Z" fill="#12201A"/><path d="M308 263 L330 211 L352 263Z" fill="#12201A"/><rect x="326" y="324" width="8" height="14" fill="#12201A"/><path d="M1255 318 L1290 258 L1325 318Z" fill="#12201A"/><path d="M1263 287 L1290 233 L1317 287Z" fill="#12201A"/><path d="M1270 256 L1290 209 L1310 256Z" fill="#12201A"/><rect x="1286" y="312" width="8" height="14" fill="#12201A"/></g>
     <g transform="translate(0 -88)">
-    <ellipse class="nyala" style="animation-delay:1.2s" cx="250" cy="404" rx="90" ry="13" fill="url(#pendarL)" opacity="0.7"/>
-    <ellipse class="nyala" style="animation-delay:1.2s" cx="250" cy="371" rx="65" ry="50" fill="url(#pendarL)" opacity="0.32"/>
+    <ellipse style="animation-delay:1.2s" cx="250" cy="404" rx="90" ry="13" fill="url(#pendarL)" opacity="0.7"/>
+    <ellipse style="animation-delay:1.2s" cx="250" cy="371" rx="65" ry="50" fill="url(#pendarL)" opacity="0.32"/>
     <path d="M210 400 L250 332 L290 400Z" fill="#0A1310"/>
     <path d="M220 397 L250 342 L280 397Z" fill="url(#kacaL)" opacity="0.7"/>
     <g stroke="#0A1310" stroke-width="2.0"><path d="M250 344 V397"/><path d="M234 371 H266"/></g>
     <rect x="205" y="400" width="90" height="4" rx="2" fill="#0A1310"/>
   </g>
     <g transform="translate(0 -96)">
-    <ellipse class="nyala" style="animation-delay:2.4s" cx="1372" cy="408" rx="100" ry="14" fill="url(#pendarL)" opacity="0.75"/>
-    <ellipse class="nyala" style="animation-delay:2.4s" cx="1372" cy="372" rx="72" ry="56" fill="url(#pendarL)" opacity="0.34"/>
+    <ellipse style="animation-delay:2.4s" cx="1372" cy="408" rx="100" ry="14" fill="url(#pendarL)" opacity="0.75"/>
+    <ellipse style="animation-delay:2.4s" cx="1372" cy="372" rx="72" ry="56" fill="url(#pendarL)" opacity="0.34"/>
     <path d="M1328 404 L1372 328 L1416 404Z" fill="#0A1310"/>
     <path d="M1338 401 L1372 340 L1406 401Z" fill="url(#kacaL)" opacity="0.75"/>
     <g stroke="#0A1310" stroke-width="2.0"><path d="M1372 342 V401"/><path d="M1354 372 H1390"/></g>
     <rect x="1322" y="404" width="100" height="4" rx="2" fill="#0A1310"/>
   </g>
-  <g class="fog b"><rect x="-200" y="330" width="2000" height="60" fill="#C9D6CF" opacity=".09" filter="url(#kaburL)"/></g>
+  <rect x="-200" y="330" width="2000" height="60" fill="url(#kabutL)" opacity=".09"/>
   <path d="M0 402 Q400 356 800 390 T1600 380 V600 H0Z" fill="#1B3528"/>
   <g fill="none" stroke="#26513D" stroke-width="5" stroke-linecap="round">
     <path d="M0 418 Q400 372 800 406 T1600 396" opacity="1.00"/>
@@ -331,16 +383,16 @@ footer{padding:28px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
     <path d="M0 594 Q400 548 800 582 T1600 572" opacity="0.52"/>
   </g>
     <g transform="translate(40 0)">
-    <ellipse class="nyala" style="animation-delay:0.6s" cx="470" cy="456" rx="155" ry="22" fill="url(#pendarL)" opacity="0.9"/>
-    <ellipse class="nyala" style="animation-delay:0.6s" cx="470" cy="402" rx="112" ry="87" fill="url(#pendarL)" opacity="0.41"/>
+    <ellipse style="animation-delay:0.6s" cx="470" cy="456" rx="155" ry="22" fill="url(#pendarL)" opacity="0.9"/>
+    <ellipse style="animation-delay:0.6s" cx="470" cy="402" rx="112" ry="87" fill="url(#pendarL)" opacity="0.41"/>
     <path d="M402 452 L470 334 L538 452Z" fill="#0A1310"/>
     <path d="M418 447 L470 353 L522 447Z" fill="url(#kacaL)" opacity="0.9"/>
     <g stroke="#0A1310" stroke-width="2.5"><path d="M470 355 V447"/><path d="M443 402 H497"/></g>
     <rect x="392" y="452" width="155" height="5" rx="2" fill="#0A1310"/>
   </g>
     <g transform="translate(-50 0)">
-    <ellipse class="nyala" style="animation-delay:1.8s" cx="1140" cy="452" rx="145" ry="21" fill="url(#pendarL)" opacity="0.85"/>
-    <ellipse class="nyala" style="animation-delay:1.8s" cx="1140" cy="402" rx="104" ry="81" fill="url(#pendarL)" opacity="0.38"/>
+    <ellipse style="animation-delay:1.8s" cx="1140" cy="452" rx="145" ry="21" fill="url(#pendarL)" opacity="0.85"/>
+    <ellipse style="animation-delay:1.8s" cx="1140" cy="402" rx="104" ry="81" fill="url(#pendarL)" opacity="0.38"/>
     <path d="M1076 448 L1140 338 L1204 448Z" fill="#0A1310"/>
     <path d="M1091 443 L1140 355 L1189 443Z" fill="url(#kacaL)" opacity="0.85"/>
     <g stroke="#0A1310" stroke-width="2.3"><path d="M1140 357 V443"/><path d="M1114 402 H1166"/></g>
@@ -348,8 +400,8 @@ footer{padding:28px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
   </g>
   <path d="M706 600 Q770 560 788 508 L812 508 Q830 560 894 600Z" fill="#2B4A3A" opacity=".75"/>
     <g>
-    <ellipse class="nyala" style="animation-delay:0s" cx="800" cy="508" rx="288" ry="41" fill="url(#pendarL)" opacity="1"/>
-    <ellipse class="nyala" style="animation-delay:0s" cx="800" cy="412" rx="207" ry="161" fill="url(#pendarL)" opacity="0.45"/>
+    <ellipse style="animation-delay:0s" cx="800" cy="508" rx="288" ry="41" fill="url(#pendarL)" opacity="1"/>
+    <ellipse style="animation-delay:0s" cx="800" cy="412" rx="207" ry="161" fill="url(#pendarL)" opacity="0.45"/>
     <path d="M674 504 L800 286 L926 504Z" fill="#0A1310"/>
     <path d="M703 495 L800 320 L897 495Z" fill="url(#kacaL)" opacity="1"/>
     <g stroke="#0A1310" stroke-width="4.6"><path d="M800 322 V495"/><path d="M749 412 H851"/></g>
@@ -379,18 +431,6 @@ footer{padding:28px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
     <circle class="kk" style="animation-delay:1.6s;animation-duration:5.9s" cx="1046" cy="411" r="2.4"/>
     <circle class="kk" style="animation-delay:3.4s;animation-duration:4.2s" cx="429" cy="436" r="2.4"/>
     <circle class="kk" style="animation-delay:0.5s;animation-duration:4.3s" cx="454" cy="446" r="1.6"/>
-    <circle class="kk" style="animation-delay:2.3s;animation-duration:5.1s" cx="1220" cy="495" r="1.6"/>
-    <circle class="kk" style="animation-delay:2.2s;animation-duration:3.7s" cx="928" cy="415" r="2.4"/>
-    <circle class="kk" style="animation-delay:0.8s;animation-duration:5.2s" cx="476" cy="509" r="2"/>
-    <circle class="kk" style="animation-delay:1.9s;animation-duration:5.8s" cx="754" cy="492" r="2"/>
-    <circle class="kk" style="animation-delay:1.0s;animation-duration:3.9s" cx="976" cy="462" r="1.6"/>
-    <circle class="kk" style="animation-delay:2.3s;animation-duration:4.8s" cx="439" cy="487" r="2.4"/>
-    <circle class="kk" style="animation-delay:1.8s;animation-duration:5.0s" cx="899" cy="418" r="1.6"/>
-    <circle class="kk" style="animation-delay:2.0s;animation-duration:3.9s" cx="599" cy="487" r="1.6"/>
-    <circle class="kk" style="animation-delay:3.7s;animation-duration:4.6s" cx="418" cy="419" r="2.4"/>
-    <circle class="kk" style="animation-delay:2.3s;animation-duration:5.7s" cx="468" cy="480" r="2"/>
-    <circle class="kk" style="animation-delay:2.8s;animation-duration:5.0s" cx="824" cy="548" r="2"/>
-    <circle class="kk" style="animation-delay:0.3s;animation-duration:3.7s" cx="808" cy="469" r="2"/>
   </g>
 </svg>
 </header>
@@ -554,6 +594,21 @@ footer{padding:28px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
     </div>
   </div>
   <p class="catatan">Nama tenda, suhu, dan menu di atas hanya contoh. Isinya disesuaikan dengan glamping Ibu.</p>
+</section>
+
+<section aria-labelledby="s-tur">
+  <h2 id="s-tur">Keliling glamping dalam 3D</h2>
+  <p class="lead">Ketuk sebuah tenda untuk melihat keadaannya malam ini, lalu lihat ke dalam untuk melihat letak alatnya. Nama tenda dan angka hanya contoh.</p>
+  <div class="tur" id="tur">
+    <div class="tur-layar">
+      <div class="tur-kanvas" id="tur-kanvas">
+        <img class="tur-sampul" src="img/tur-3d.webp" width="1280" height="800" alt="Gambaran 3D lokasi glamping: enam tenda segitiga menyala di kebun teh, api unggun di tengah, dan ruang petugas" loading="lazy" decoding="async">
+        <button type="button" class="tur-mulai" id="tur-mulai"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg><span>Mulai tur 3D</span></button>
+      </div>
+      <div class="tur-chips" id="tur-chips" role="group" aria-label="Pilih tenda"></div>
+    </div>
+    <aside class="tur-panel" id="tur-panel" aria-live="polite"></aside>
+  </div>
 </section>
 
 <section aria-labelledby="s-denah">
@@ -789,13 +844,18 @@ footer{padding:28px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
 
 <script>
 (function(){
+  var hero = document.querySelector('.hero');
+  if ('IntersectionObserver' in window) new IntersectionObserver(function(es){ hero.classList.toggle('diam', !es[0].isIntersecting); }).observe(hero);
+})();
+(function(){
   var v = document.getElementById('vid'), d = document.getElementById('dengar');
-  var hemat = false;
-  try { hemat = window.matchMedia('(prefers-reduced-motion: reduce)').matches || (navigator.connection && navigator.connection.saveData); } catch(e) {}
-  if (!hemat) { var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+  var pv = document.getElementById('putarvid');
+  function mulai(suara){ pv.hidden = true; v.muted = !suara; v.currentTime = 0; v.loop = false; var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+  pv.addEventListener('click', function(){ mulai(true); d.querySelector('span').textContent = 'Diputar dengan suara'; });
+  v.addEventListener('play', function(){ pv.hidden = true; });
+  if ('IntersectionObserver' in window) new IntersectionObserver(function(es){ if (!es[0].isIntersecting && !v.paused) v.pause(); }).observe(v);
   d.addEventListener('click', function(){
-    v.muted = false; v.loop = false; v.currentTime = 0;
-    var p = v.play(); if (p && p.catch) p.catch(function(){});
+    mulai(true);
     d.querySelector('span').textContent = 'Diputar dengan suara';
   });
   v.addEventListener('ended', function(){ d.querySelector('span').textContent = 'Putar lagi dengan suara'; });
@@ -804,6 +864,7 @@ footer{padding:28px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
   var warna ={hangat:'#F4B860', senja:'#EE8455', bulan:'#A9C9EC', mati:'#24302A'};
   var kaca = document.getElementById('kaca'), sinar = document.getElementById('sinar'), sinarT = document.getElementById('sinar-tanah');
   var kabar = document.getElementById('kabar');
+  function ulangGerak(id){ var g = document.getElementById(id); if (!g) return; g.querySelectorAll('.uap,.not,.api-lidah').forEach(function(x){ x.style.animation = 'none'; void x.getBoundingClientRect(); x.style.animation = ''; }); }
   var hangat = true;
 
   document.querySelectorAll('[data-warna]').forEach(function(b){
@@ -822,7 +883,7 @@ footer{padding:28px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
   pemanas.addEventListener('click', function(){
     hangat = !hangat;
     pemanas.setAttribute('aria-checked', hangat ? 'true' : 'false');
-    document.getElementById('hangat').style.opacity = hangat ? 1 : 0;
+    document.getElementById('hangat').style.opacity = hangat ? 1 : 0; if (hangat) ulangGerak('hangat');
     var s = hangat ? 21 : 14;
     document.getElementById('pemanas-ket').textContent = hangat ? 'Menyala, dalam tenda 21°' : 'Mati, dalam tenda 14°';
     document.getElementById('ket-suhu').innerHTML = '<b>' + s + '°</b> dalam · 12° luar';
@@ -854,7 +915,7 @@ footer{padding:28px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
     b.addEventListener('click', function(){
       document.querySelectorAll('[data-suara]').forEach(function(x){x.setAttribute('aria-pressed', x===b ? 'true' : 'false')});
       var s = b.getAttribute('data-suara');
-      document.getElementById('nada').style.opacity = s === 'mati' ? 0 : 1;
+      document.getElementById('nada').style.opacity = s === 'mati' ? 0 : 1; if (s !== 'mati') ulangGerak('nada');
       kabar.textContent = s === 'mati' ? 'Speaker dimatikan.' : 'Speaker memutar ' + namaSuara[s] + ', mati sendiri setelah 1 jam.';
     });
   });
@@ -869,12 +930,13 @@ footer{padding:28px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
     b.addEventListener('click', function(){
       var k = b.getAttribute('data-pesan'), on = b.getAttribute('aria-pressed') !== 'true';
       b.setAttribute('aria-pressed', on ? 'true' : 'false');
-      if (k === 'api') document.getElementById('api').style.opacity = on ? 1 : 0;
+      if (k === 'api') { document.getElementById('api').style.opacity = on ? 1 : 0; if (on) ulangGerak('api'); }
       kabar.textContent = on ? teks[k] : 'Pesanan dibatalkan.';
     });
   });
 })();
 </script>
 <script type="module" src="./alat3d.js"></script>
+<script type="module" src="./tur3d.js"></script>
 </body>
 </html>
