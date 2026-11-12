@@ -7,6 +7,7 @@
 <title>Glamping Pintar</title>
 <meta name="description" content="Gambaran konsep glamping pintar di dataran tinggi Ciwidey: tamu masuk pakai HP, tenda hangat sebelum tamu datang, pemilik memantau dari rumah.">
 <meta name="theme-color" content="#13201B">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Lora:wght@500;600&display=swap" rel="stylesheet">
@@ -133,6 +134,89 @@ button{font:inherit;color:inherit}
 .pesan button[aria-pressed="true"] svg{color:var(--lamp)}
 .kabar{min-height:48px;margin:12px 4px 0;padding:10px 12px;border-radius:10px;background:var(--paper-2);font-size:14px;color:var(--ink)}
 .catatan{margin:18px 0 0;color:var(--muted);font-size:15px;max-width:60ch}
+
+/* Denah */
+.denah-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;background:var(--paper-2);border-radius:14px;padding:12px}
+.denah{display:block;width:100%;min-width:760px;height:auto}
+.denah .kt{font:500 14px var(--sans);fill:var(--muted);text-anchor:middle}
+.denah .kj{font:600 20px var(--serif);fill:var(--ink)}
+.denah .kp{font:600 16px var(--sans);fill:var(--night-ink);text-anchor:middle}
+.denah .pn circle{fill:var(--lamp);stroke:#fff;stroke-width:3}
+.denah .pn text{font:700 13px var(--sans);fill:var(--night);text-anchor:middle}
+.geser{margin:8px 0 0;font-size:14px;color:var(--muted)}
+@media (min-width:820px){.geser{display:none}}
+.legenda{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(230px,100%),1fr));gap:6px 24px}
+.legenda li{padding:6px 0;border-bottom:1px solid var(--line);font-size:16px}
+.legenda b{display:inline-block;min-width:34px;color:var(--lamp-ink)}
+
+/* Alat */
+.alat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(270px,100%),1fr));gap:16px}
+.alat{margin:0;background:#FFFDF8;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.alat img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;background:#16251E}
+.alat figcaption{padding:16px 18px 18px;display:flex;flex-direction:column;gap:4px;flex:1}
+.alat .di{font-size:13px;font-weight:600;color:var(--lamp-ink);letter-spacing:.03em}
+.alat figcaption b{font-size:18px;font-weight:600;line-height:1.35}
+.alat figcaption p{margin:4px 0 14px;font-size:15px;color:var(--muted)}
+.putar{margin-top:auto;align-self:flex-start;min-height:44px;padding:0 16px;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--ink);border-radius:22px;background:#fff;color:var(--ink);font-size:15px;font-weight:600;cursor:pointer}
+.putar[hidden]{display:none}
+dialog#v3d{width:min(1100px,calc(100vw - 24px));max-width:none;max-height:calc(100dvh - 24px);padding:0;border:0;border-radius:16px;background:#FFFDF8;color:var(--ink);overflow:auto}
+dialog#v3d::backdrop{background:rgba(10,18,15,.82)}
+.v3d-stage{position:relative;height:min(62vh,560px);min-height:300px;background:radial-gradient(ellipse 70% 60% at 50% 42%,#2A3D33 0%,#18271F 62%,#121D18 100%)}
+.v3d-stage canvas{display:block;width:100%;height:100%;touch-action:none}
+.v3d-load{position:absolute;inset:0;display:grid;place-items:center;color:var(--night-muted);font-size:15px}
+.v3d-load[hidden]{display:none}
+.v3d-hint{position:absolute;left:14px;bottom:12px;font-size:13px;color:var(--night-muted);pointer-events:none}
+.v3d-bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:12px 20px;padding:16px 18px 18px}
+.v3d-cap{flex:1 1 320px;display:flex;flex-direction:column;gap:2px}
+.v3d-cap .di{font-size:13px;font-weight:600;color:var(--lamp-ink)}
+.v3d-cap b{font-size:19px;font-weight:600}
+.v3d-cap p{margin:4px 0 0;color:var(--muted);font-size:15px}
+.v3d-nav{display:flex;gap:8px}
+.v3d-nav button{min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:0 16px;border:1px solid var(--ink);border-radius:22px;background:#fff;color:var(--ink);font-size:15px;font-weight:600;cursor:pointer}
+html.snap dialog#v3d{width:auto;border:0;border-radius:0;background:transparent;padding:0;margin:0;position:fixed;left:0;top:0;max-height:none}
+html.snap .v3d-stage{width:960px;height:600px;min-height:0}
+html.snap .v3d-bar,html.snap .v3d-hint{display:none}
+html.snap dialog#v3d::backdrop{background:#000}
+
+/* Aplikasi */
+.apl{display:grid;grid-auto-flow:column;grid-auto-columns:min(300px,84%);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;-webkit-overflow-scrolling:touch}
+@media (min-width:980px){.apl{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);overflow:visible}}
+.mock{margin:0;scroll-snap-align:start}
+.mock figcaption{font-size:14px;font-weight:600;color:var(--lamp-ink);margin-bottom:8px}
+.mk{background:#FFFDF8;border:1px solid var(--line);border-radius:26px;padding:18px 16px;box-shadow:0 18px 40px -24px rgba(30,40,35,.35);min-height:540px}
+.mk-top{padding:0 4px 12px;border-bottom:1px solid var(--paper-2);margin-bottom:12px}
+.mk-top b{display:block;font-family:var(--serif);font-size:21px}
+.mk-top small{color:var(--muted);font-size:14px}
+.mk-isi{display:flex;flex-direction:column;gap:8px;font-size:15px}
+.mk-isi small{display:block;color:var(--muted);font-size:13px;line-height:1.35}
+.opsi-t{display:grid;grid-template-columns:18px 1fr auto;gap:10px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:12px}
+.opsi-t.on{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.opsi-t .rd{width:16px;height:16px;border-radius:50%;border:2px solid var(--muted)}
+.opsi-t.on .rd{border:5px solid var(--pine)}
+.opsi-t em{font-style:normal;font-weight:600;font-size:14px;white-space:nowrap}
+.mk-lbl{margin:6px 4px 0;font-size:13px;font-weight:600;color:var(--muted)}
+.cek-t{display:flex;align-items:center;gap:10px;padding:8px 4px}
+.cek-t i{width:20px;height:20px;border-radius:5px;border:2px solid var(--muted);flex:none}
+.cek-t.on i{background:var(--pine);border-color:var(--pine);box-shadow:inset 0 0 0 3px #FFFDF8}
+.mk-total{display:flex;justify-content:space-between;padding:12px 4px 4px;border-top:1px solid var(--paper-2);margin-top:4px}
+.mk-btn{background:var(--night);color:var(--night-ink);text-align:center;font-weight:600;padding:13px;border-radius:999px}
+.mk-cat{text-align:center}
+.lang{display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center;padding:10px 4px;border-bottom:1px solid var(--paper-2)}
+.lang i{width:22px;height:22px;border-radius:50%;background:var(--tea);box-shadow:inset 0 0 0 6px var(--tea),inset 0 0 0 11px #fff}
+.ktp{width:42px;height:28px;border-radius:4px;background:linear-gradient(90deg,#C9D9E6 0 35%,#E8EEF2 35%);border:1px solid #B9C7D2}
+.pinkartu{margin-top:8px;background:var(--night);color:var(--night-ink);border-radius:16px;padding:16px;text-align:center}
+.pinkartu small{color:var(--night-muted)}
+.pinkartu b{display:block;font-family:var(--serif);font-size:40px;letter-spacing:.2em;color:#F4B860;margin:4px 0}
+.mk-dua{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
+.mk-dua span{text-align:center;padding:11px 6px;border:1px solid var(--ink);border-radius:999px;font-weight:600;font-size:14px}
+.tg{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 12px;border:1px solid var(--line);border-radius:12px}
+.tg span{flex:none;font-size:13px;font-weight:600;padding:7px 12px;border-radius:999px;background:var(--night);color:var(--night-ink)}
+.tg.awas{background:#F8E7DF;border-color:#E9B9A6}
+.tg.awas span{background:var(--warn)}
+.tg.beres{opacity:.6}
+.tg.beres span{background:var(--paper-2);color:var(--muted)}
+.mk-nav{display:flex;justify-content:space-around;margin-top:10px;padding-top:12px;border-top:1px solid var(--paper-2);font-size:14px;color:var(--muted)}
+.mk-nav b{color:var(--ink)}
 
 /* Pemilik */
 .pemilik{display:grid;gap:28px;align-items:start}
@@ -472,6 +556,149 @@ footer{padding:28px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
   <p class="catatan">Nama tenda, suhu, dan menu di atas hanya contoh. Isinya disesuaikan dengan glamping Ibu.</p>
 </section>
 
+<section aria-labelledby="s-denah">
+  <h2 id="s-denah">Di mana alatnya dipasang</h2>
+  <p class="lead">Denah satu tenda dilihat dari atas. Bentuk dan ukuran tenda Ibu nanti diukur langsung di lokasi.</p>
+  <div class="denah-wrap">
+  <svg class="denah" viewBox="0 0 1000 600" role="img" aria-label="Denah satu tenda dari atas dengan tujuh penanda alat, dan peta kecil satu lokasi dengan ruang petugas sebagai penanda delapan">
+    <defs><pattern id="papan" width="18" height="18" patternUnits="userSpaceOnUse"><path d="M0 9 H18" stroke="#D9D0BE" stroke-width="1"/></pattern>
+      <pattern id="arsir" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0 V8" stroke="#5E7F45" stroke-width="2" opacity=".35"/></pattern></defs>
+    <rect x="60" y="480" width="520" height="62" fill="url(#papan)" stroke="#5D675F" stroke-width="1.5"/>
+    <text class="kt" x="320" y="566">dek kayu</text>
+    <rect x="60" y="60" width="520" height="420" fill="#FFFDF8" stroke="#1E2823" stroke-width="3"/>
+    <path d="M60 270 H580" stroke="#5D675F" stroke-width="1.2" stroke-dasharray="6 6"/><text class="kt" x="490" y="262">bubungan atap</text>
+    <path d="M400 60 V230 H580" fill="none" stroke="#1E2823" stroke-width="2.5"/><text class="kt" x="470" y="215">kamar mandi</text>
+    <rect x="420" y="80" width="80" height="80" fill="none" stroke="#8FA39A" stroke-width="1.5"/><circle cx="460" cy="120" r="10" fill="none" stroke="#8FA39A" stroke-width="1.5"/>
+    <ellipse cx="535" cy="180" rx="16" ry="22" fill="none" stroke="#8FA39A" stroke-width="1.5"/>
+    <circle cx="548" cy="96" r="18" fill="#F3E2C4" stroke="#8A5A12" stroke-width="2"/>
+    <rect x="90" y="110" width="240" height="220" rx="6" fill="#EFE8DA" stroke="#9A6A40" stroke-width="2"/>
+    <rect x="96" y="120" width="54" height="90" rx="6" fill="#fff" stroke="#C89C6C"/><rect x="96" y="226" width="54" height="90" rx="6" fill="#fff" stroke="#C89C6C"/>
+    <rect x="170" y="114" width="156" height="212" fill="url(#arsir)" stroke="#5E7F45" stroke-width="1.5"/><text class="kt" x="248" y="224">kasur</text>
+    <rect x="150" y="62" width="120" height="12" fill="#F6F3EC" stroke="#B8502E" stroke-width="2"/>
+    <rect x="344" y="62" width="34" height="10" fill="#4E3422"/>
+    <g fill="none" stroke="#E9A23B" stroke-width="1.5"><circle cx="250" cy="390" r="30" stroke-dasharray="4 4"/><path d="M250 350 V340 M250 430 V440 M210 390 H200 M290 390 H300"/></g>
+    <circle cx="380" cy="320" r="18" fill="none" stroke="#5D675F" stroke-width="1.5" stroke-dasharray="4 4"/><circle cx="380" cy="320" r="5" fill="#5D675F"/>
+    <path d="M60 480 H452" stroke="#A9C9EC" stroke-width="6"/><path d="M70 466 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0" fill="none" stroke="#C89C6C" stroke-width="2"/>
+    <text class="kt" x="250" y="500" style="fill:#5D675F">dinding kaca</text>
+    <path d="M552 480 V398" stroke="#1E2823" stroke-width="3"/><path d="M472 480 A80 80 0 0 1 552 400" fill="none" stroke="#1E2823" stroke-width="1" stroke-dasharray="4 4"/>
+    <rect x="537" y="430" width="10" height="22" fill="#1F2522"/>
+    <g fill="none" stroke="#1E2823" stroke-width="1">
+      <path d="M548 441 L610 441"/><path d="M361 72 L361 37"/><path d="M250 360 L250 305"/><path d="M210 62 L210 37"/><path d="M566 96 L615 96"/><path d="M110 466 L110 423"/><path d="M398 320 L440 320"/>
+    </g>
+    <g class="pn"><circle cx="625" cy="441" r="15"/><text x="625" y="446">01</text></g><g class="pn"><circle cx="361" cy="22" r="15"/><text x="361" y="27">02</text></g><g class="pn"><circle cx="250" cy="290" r="15"/><text x="250" y="295">03</text></g><g class="pn"><circle cx="210" cy="22" r="15"/><text x="210" y="27">04</text></g><g class="pn"><circle cx="630" cy="96" r="15"/><text x="630" y="101">05</text></g><g class="pn"><circle cx="110" cy="408" r="15"/><text x="110" y="413">06</text></g><g class="pn"><circle cx="455" cy="320" r="15"/><text x="455" y="325">07</text></g>
+    <g transform="translate(680 70)">
+      <rect x="0" y="0" width="290" height="470" rx="10" fill="#FFFDF8" stroke="#D9D0BE"/>
+      <text class="kj" x="20" y="34">Satu lokasi</text>
+      <g fill="#EFE8DA" stroke="#9A6A40" stroke-width="1.5">
+        <path d="M40 150 L70 100 L100 150Z"/><path d="M190 140 L220 90 L250 140Z"/><path d="M30 290 L60 240 L90 290Z"/><path d="M200 280 L230 230 L260 280Z"/><path d="M115 220 L145 170 L175 220Z"/>
+      </g>
+      <g stroke="#E9A23B" stroke-width="1.5" stroke-dasharray="3 5" fill="none">
+        <path d="M70 150 L145 380"/><path d="M220 140 L145 380"/><path d="M60 290 L145 380"/><path d="M230 280 L145 380"/><path d="M145 220 L145 380"/>
+      </g>
+      <rect x="95" y="380" width="100" height="56" rx="6" fill="#13201B"/><text class="kp" x="145" y="414">petugas</text>
+      <g class="pn"><circle cx="214" cy="380" r="15"/><text x="214" y="385">08</text></g>
+      <text class="kt" x="145" y="458">tanpa kabel ke tiap tenda</text>
+    </g>
+  </svg>
+  </div>
+  <p class="geser">Geser gambar ke samping untuk melihat seluruh denah.</p>
+  <ol class="legenda">
+    <li><b>01</b> Kunci pintar</li><li><b>02</b> Plat kode tenda</li><li><b>03</b> Lampu suasana</li><li><b>04</b> Pemanas + selimut listrik</li>
+    <li><b>05</b> Pemantau air panas</li><li><b>06</b> Tirai elektrik</li><li><b>07</b> Sensor asap, suhu + speaker</li><li><b>08</b> Otak sistem di ruang petugas</li>
+  </ol>
+</section>
+
+<section aria-labelledby="s-alat">
+  <h2 id="s-alat">Rancangan alatnya</h2>
+  <p class="lead">Semuanya barang jadi yang dijual di pasaran, disatukan dan dirapikan oleh tim kami. Gambar 3D di bawah adalah konsep; bentuk aslinya mengikuti merek yang dipilih bersama. Tekan <b>Putar 3D</b> untuk melihat dari segala sisi.</p>
+  <div class="alat-grid" id="alat-grid">
+    <figure class="alat">
+      <img src="img/alat-1.webp" width="960" height="600" alt="Model 3D pintu kayu dengan kunci tombol angka dan gagang kuningan" loading="lazy" decoding="async">
+      <figcaption><span class="di">PINTU · 01</span><b>Kunci pintar PIN + kartu</b><p>PIN dikirim lewat WhatsApp, kartu cadangan dipegang petugas, kunci biasa tetap ada. Terkunci sendiri beberapa detik setelah pintu ditutup.</p><button type="button" class="putar" data-i="0" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>Putar 3D</button></figcaption>
+    </figure>
+    <figure class="alat">
+      <img src="img/alat-2.webp" width="960" height="600" alt="Model 3D plat kayu berkode QR di dinding papan dan HP tamu yang memindai" loading="lazy" decoding="async">
+      <figcaption><span class="di">DINDING · 02</span><b>Plat kode tenda</b><p>Plat kayu berukir kode QR. Dipindai dengan HP tamu untuk lampu, pemanas, tirai, dan pesanan. Tidak ada tablet yang bisa rusak atau hilang.</p><button type="button" class="putar" data-i="1" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>Putar 3D</button></figcaption>
+    </figure>
+    <figure class="alat">
+      <img src="img/alat-3.webp" width="960" height="600" alt="Model 3D tiga bohlam gantung berwarna hangat, senja, dan bulan di rangka kabin segitiga" loading="lazy" decoding="async">
+      <figcaption><span class="di">PLAFON · 03</span><b>Lampu suasana</b><p>Bohlam gantung dan lampu strip yang bisa ganti warna: hangat, senja, bulan. Mati sendiri saat tenda kosong.</p><button type="button" class="putar" data-i="2" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>Putar 3D</button></figcaption>
+    </figure>
+    <figure class="alat">
+      <img src="img/alat-4.webp" width="960" height="600" alt="Model 3D kasur dengan selimut listrik dan pemanas ruangan bersirip dengan layar suhu" loading="lazy" decoding="async">
+      <figcaption><span class="di">KASUR & DINDING · 04</span><b>Pemanas + selimut listrik</b><p>Pemanas ruangan dan selimut listrik dinyalakan colokan pintar setengah jam sebelum tamu tiba. Mati sendiri saat check-out.</p><button type="button" class="putar" data-i="3" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>Putar 3D</button></figcaption>
+    </figure>
+    <figure class="alat">
+      <img src="img/alat-5.webp" width="960" height="600" alt="Model 3D tangki pemanas air dengan layar suhu dan sisa air, pipa tembaga ke pancuran" loading="lazy" decoding="async">
+      <figcaption><span class="di">KAMAR MANDI · 05</span><b>Pemantau air panas</b><p>Sensor di pemanas air membaca suhu dan sisa air panas. Kalau mati atau hampir habis, petugas langsung dapat kabar.</p><button type="button" class="putar" data-i="4" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>Putar 3D</button></figcaption>
+    </figure>
+    <figure class="alat">
+      <img src="img/alat-6.webp" width="960" height="600" alt="Model 3D jendela kayu dengan tirai gulung bermotor setengah terbuka, pemandangan kebun teh di luar" loading="lazy" decoding="async">
+      <figcaption><span class="di">JENDELA · 06</span><b>Tirai elektrik</b><p>Tirai gulung bermotor. Dibuka dari HP di pagi hari, kebun teh langsung kelihatan dari kasur. Kabin kaca bisa memakai kaca buram.</p><button type="button" class="putar" data-i="5" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>Putar 3D</button></figcaption>
+    </figure>
+    <figure class="alat">
+      <img src="img/alat-7.webp" width="960" height="600" alt="Model 3D sensor asap bundar di langit-langit miring, pengukur suhu, dan speaker kain" loading="lazy" decoding="async">
+      <figcaption><span class="di">LANGIT-LANGIT · 07</span><b>Sensor asap, gas, suhu + speaker</b><p>Alarm asap dan gas masuk ke HP petugas dan HP Ibu. Speaker memutar suara hujan, jangkrik, atau sungai.</p><button type="button" class="putar" data-i="6" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>Putar 3D</button></figcaption>
+    </figure>
+    <figure class="alat">
+      <img src="img/alat-8.webp" width="960" height="600" alt="Model 3D komputer mini, router, cadangan listrik di rak kayu, dan tablet petugas berisi daftar tugas" loading="lazy" decoding="async">
+      <figcaption><span class="di">RUANG PETUGAS · 08</span><b>Otak sistem + cadangan listrik</b><p>Kotak kecil yang mengatur semua tenda, tetap jalan tanpa internet. Tablet petugas menerima pesanan dan peringatan.</p><button type="button" class="putar" data-i="7" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>Putar 3D</button></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section aria-labelledby="s-apl">
+  <h2 id="s-apl">Rancangan aplikasinya</h2>
+  <p class="lead">Satu aplikasi yang dibuka dari HP tanpa perlu dipasang. Selain layar tamu dan layar Ibu di halaman ini, ini tiga layar lainnya.</p>
+  <div class="apl">
+    <figure class="mock">
+      <figcaption>Tamu · memesan</figcaption>
+      <div class="mk">
+        <div class="mk-top"><b>Glamping Ibu</b><small>Sab 21 – Min 22 Des · 2 orang</small></div>
+        <div class="mk-isi">
+          <div class="opsi-t"><span class="rd"></span><div><b>Tenda Kabut</b><small>Kasur besar, pemanas, kamar mandi dalam</small></div><em>Rp 850 rb</em></div>
+          <div class="opsi-t on"><span class="rd"></span><div><b>Tenda Teh Premium</b><small>Ditambah bak rendam air panas dan jendela buram</small></div><em>Rp 1,3 jt</em></div>
+          <p class="mk-lbl">Tambahan</p>
+          <div class="cek-t on"><i></i>Sarapan nasi liwet 2 porsi</div>
+          <div class="cek-t on"><i></i>Api unggun malam</div>
+          <div class="cek-t"><i></i>Petik teh pagi</div>
+          <div class="mk-total"><span>Total</span><b>Rp 1.530.000</b></div>
+          <div class="mk-btn">Bayar uang muka 50%</div>
+          <small class="mk-cat">Harga contoh</small>
+        </div>
+      </div>
+    </figure>
+    <figure class="mock">
+      <figcaption>Tamu · check-in dari rumah</figcaption>
+      <div class="mk">
+        <div class="mk-top"><b>Check-in</b><small>Tenda Teh 1 · Sabtu</small></div>
+        <div class="mk-isi">
+          <div class="lang"><i></i><div><b>Data tamu</b><small>2 orang dewasa</small></div></div>
+          <div class="lang"><i></i><div><b>Foto KTP</b><small>Terkirim, disimpan aman</small></div><span class="ktp"></span></div>
+          <div class="lang"><i></i><div><b>Perkiraan tiba</b><small>Sekitar 14.30</small></div></div>
+          <div class="pinkartu"><small>PIN pintu Tenda Teh 1</small><b>4827</b><small>Aktif Sabtu 14.00 sampai Minggu 12.00</small></div>
+          <div class="mk-dua"><span>Bagikan ke teman</span><span>Lihat rute</span></div>
+        </div>
+      </div>
+    </figure>
+    <figure class="mock">
+      <figcaption>Petugas · tugas malam</figcaption>
+      <div class="mk">
+        <div class="mk-top"><b>Tugas malam ini</b><small>4 belum selesai</small></div>
+        <div class="mk-isi">
+          <div class="tg awas"><div><b>Air panas mati</b><small>Tenda Teh 1 · 20.12</small></div><span>Tangani</span></div>
+          <div class="tg"><div><b>Api unggun</b><small>Tenda Kabut 1 · 19.04</small></div><span>Ambil</span></div>
+          <div class="tg"><div><b>Bandrek 2 gelas</b><small>Tenda Kabut 2 · 19.40</small></div><span>Ambil</span></div>
+          <div class="tg"><div><b>Selimut tambahan</b><small>Tenda Teh 2 · 20.15</small></div><span>Ambil</span></div>
+          <div class="tg beres"><div><b>Tamu tiba</b><small>Tenda Kabut 3 · PIN dipakai 14.32</small></div><span>Selesai</span></div>
+          <div class="mk-nav"><b>Tugas</b><span>Tenda</span><span>Tamu</span></div>
+        </div>
+      </div>
+    </figure>
+  </div>
+  <p class="catatan">Nama tenda, jam, dan harga hanya contoh.</p>
+</section>
+
 <section aria-labelledby="s-pemilik">
   <h2 id="s-pemilik">Yang Ibu lihat dari rumah</h2>
   <p class="lead">Satu layar di HP Ibu untuk semua tenda. Tidak perlu menelepon petugas untuk tahu keadaan malam ini.</p>
@@ -545,6 +772,17 @@ footer{padding:28px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
 
 </main>
 
+<dialog id="v3d" aria-labelledby="v3d-nama">
+  <div class="v3d-stage"><canvas id="v3d-canvas" aria-label="Model 3D alat, bisa diputar dengan menggeser"></canvas><div class="v3d-load" id="v3d-load">Menyiapkan model 3D…</div><div class="v3d-hint">Geser untuk memutar</div></div>
+  <div class="v3d-bar">
+    <div class="v3d-cap" aria-live="polite"><span class="di" id="v3d-di"></span><b id="v3d-nama"></b><p id="v3d-ket"></p></div>
+    <div class="v3d-nav">
+      <button type="button" id="v3d-prev" aria-label="Alat sebelumnya"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <button type="button" id="v3d-next" aria-label="Alat berikutnya"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+      <button type="button" id="v3d-tutup">Tutup</button>
+    </div>
+  </div>
+</dialog>
 <footer>
   <div class="wrap">RekaInsta · Gambaran awal untuk bahan diskusi. Nama tenda dan angka di layar adalah contoh.</div>
 </footer>
@@ -637,5 +875,6 @@ footer{padding:28px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
   });
 })();
 </script>
+<script type="module" src="./alat3d.js"></script>
 </body>
 </html>
